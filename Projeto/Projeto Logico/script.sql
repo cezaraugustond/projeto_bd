@@ -1,5 +1,8 @@
+CREATE SCHEMA IF NOT EXISTS gestao_futebol;
+SET search_path TO gestao_futebol;
+
 -- -----------------------------------------------------
--- Table Federacao
+-- Tabela Federação
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Federacao CASCADE;
 
@@ -15,7 +18,7 @@ CREATE TABLE Federacao (
 );
 
 -- -----------------------------------------------------
--- Table Estadio
+-- Tabela Estádio
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Estadio CASCADE;
 
@@ -29,7 +32,7 @@ CREATE TABLE Estadio (
 );
 
 -- -----------------------------------------------------
--- Table Clube
+-- Tabela Clube
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Clube CASCADE;
 
@@ -53,7 +56,7 @@ CREATE TABLE Clube (
 );
 
 -- -----------------------------------------------------
--- Table Campeonato
+-- Tabela Campeonato
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Campeonato CASCADE;
 
@@ -69,7 +72,7 @@ CREATE TABLE Campeonato (
 );
 
 -- -----------------------------------------------------
--- Table Temporada
+-- Tabela Temporada
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Temporada CASCADE;
 
@@ -89,7 +92,7 @@ CREATE TABLE Temporada (
 );
 
 -- -----------------------------------------------------
--- Table Jogador
+-- Tabela Jogador
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Jogador CASCADE;
 
@@ -113,7 +116,7 @@ CREATE TABLE Jogador (
 );
 
 -- -----------------------------------------------------
--- Table Tecnico
+-- Tabela Técnico
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Tecnico CASCADE;
 
@@ -133,7 +136,7 @@ CREATE TABLE Tecnico (
 );
 
 -- -----------------------------------------------------
--- Table Partida
+-- Tabela Partida
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Partida CASCADE;
 
@@ -156,7 +159,7 @@ CREATE TABLE Partida (
 );
 
 -- -----------------------------------------------------
--- Table Sumula (Entidade Fraca)
+-- Tabela Súmula (Entidade Fraca)
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Sumula CASCADE;
 
@@ -171,7 +174,7 @@ CREATE TABLE Sumula (
 );
 
 -- -----------------------------------------------------
--- Table Evento
+-- Tabela Evento
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Evento CASCADE;
 
@@ -192,7 +195,7 @@ CREATE TABLE Evento (
 );
 
 -- -----------------------------------------------------
--- Table Executivo
+-- Tabela Executivo
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS Executivo CASCADE;
 
