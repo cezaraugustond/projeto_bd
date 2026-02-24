@@ -498,14 +498,14 @@ def exibir_jogadores(jogadores):
         print('=' * 30)
         return
     
-    print('=' * 65)
-    print(f"{'ID':<5} | {'NOME COMPLETO':<35} | {'POSIÇÃO':<15}")
-    print('-' * 65)
+    print('=' * 150)
+    print(f"{'ID':<4} | {'NOME COMPLETO':<25} | {'NASC.':<10} | {'CPF':<12} | {'LIC.':<10} | {'POS':<10} | {'ALT':<5} | {'PESO':<5} | {'FONES'}")
+    print('-' * 150)
     
     for j in jogadores:
         nome_completo = f"{j[1]} {j[2]}"
-        print(f"{j[0]:<5} | {nome_completo:<35} | {j[6]:<15}")
-    print('=' * 65)
+        print(f"{j[0]:<4} | {nome_completo:<35} | {j[3]:<10} | {j[4]:<12} | {j[5]:<10} | {j[6]:<10} | {j[7]:<5} | {j[8]:<5} | {j[9]}")
+    print('=' * 150)
 
 def exibir_clubes(clubes):
     if not clubes:
@@ -513,12 +513,12 @@ def exibir_clubes(clubes):
         print('NENHUM CLUBE ENCONTRADO'.center(30))
         print('=' * 30)
         return
-    print('=' * 80)
-    print(f"{'ID':<5} | {'NOME DO CLUBE':<35} | {'CIDADE':<20} | {'UF':<5}")
-    print('-' * 80)
+    print('=' * 100)
+    print(f"{'ID':<5} | {'NOME DO CLUBE':<30} | {'CNPJ':<20} | {'CIDADE':<20} | {'UF':<5}")
+    print('-' * 100)
     for c in clubes:
-        print(f"{c[0]:<5} | {c[1]:<35} | {c[3]:<20} | {c[4]:<5}")
-    print('=' * 80)
+        print(f"{c[0]:<5} | {c[1]:<30} | {c[2]:<20} | {c[3]:<20} | {c[4]:<5}")
+    print('=' * 100)
 
 def exibir_contratos(contratos):
     if not contratos:
@@ -526,12 +526,12 @@ def exibir_contratos(contratos):
         print('NENHUM CONTRATO ENCONTRADO'.center(30))
         print('=' * 30)
         return
-    print('=' * 85)
-    print(f"{'ID':<5} | {'ID CLUBE':<10} | {'ID JOGADOR':<10} | {'DATA FIM':<15} | {'SALÁRIO':<15}")
-    print('-' * 85)
+    print('=' * 110)
+    print(f"{'ID':<5} | {'ID CLUBE':25} | {'ID JOGADOR':<25} | {'DATA FIM':<12} | {'SALÁRIO':<12} | {'MULTA':<12}")
+    print('-' * 110)
     for co in contratos:
-        print(f"{co[0]:<5} | {co[1]:<10} | {co[2]:<10} | {co[3]:<15} | {co[4]:<15}")
-    print('=' * 85)
+        print(f"{co[0]:<5} | {co[1]:<25} | {co[2]:<25} | {co[3]:<12} | {co[4]:<12} | {co[5]:<12}")
+    print('=' * 110)
 
 def confirmar_operacao(mensagem):
     print('=' * 40)
@@ -544,3 +544,4 @@ def confirmar_operacao(mensagem):
             print('Operação cancelada pelo usuário.')
             return False
         print('ERRO: Digite apenas S para Sim ou N para Não!')
+
