@@ -1,6 +1,6 @@
 import psycopg
 
-dados_conexao = ""
+dados_conexao = "host=database-1.cgueddgcnhqa.us-east-1.rds.amazonaws.com port=5432 dbname=postgres user=admin1 password=876admin5671"
 
 try:
     with psycopg.connect(dados_conexao) as conn:
@@ -54,7 +54,7 @@ def salvar_contrato(dados):
             with conn.cursor() as cur:
                 cur.execute("SET search_path TO aplicacao_crud;")
                 sql = """
-                INSERT INTO Contrato (id_clube, id_jogador, data_fim, salario, multa)
+                INSERT INTO Contrato (id_clube, id_jogador, data_fim, salario_mensal, multa_rescisoria)
                 VALUES (%s, %s, %s, %s, %s) RETURNING id_contrato;
                 """
                 cur.execute(sql, dados)
@@ -105,8 +105,9 @@ def buscar_contratos_db(id_contrato=None, id_jogador=None):
             with conn.cursor() as cur:
                 cur.execute("SET search_path TO aplicacao_crud;")
                 
+
                 sql = """
-                SELECT co.id_contrato, cl.nome, jo.primeiro_nome, co.data_fim, co.salario
+                SELECT co.id_contrato, cl.nome, jo.primeiro_nome, co.data_fim, co.salario_mensal, co.multa_rescisoria
                 FROM Contrato co
                 JOIN Clube cl ON co.id_clube = cl.id_clube
                 JOIN Jogador jo ON co.id_jogador = jo.id_jogador
@@ -164,11 +165,14 @@ def atualizar_jogador_db(id_jogador, novos_dados):
         with psycopg.connect(dados_conexao) as conn:
             with conn.cursor() as cur:
                 cur.execute("SET search_path TO aplicacao_crud;")
+                
+
                 sql = """
                 UPDATE Jogador 
-                SET primeiro_nome = %s, sobrenome = %s, cpf = %s, posicao = %s, altura = %s, peso = %s
+                SET primeiro_nome = %s, sobrenome = %s, data_nascimento = %s, cpf = %s, licenca = %s, posicao = %s, altura = %s, peso = %s, telefones = %s
                 WHERE id_jogador = %s;
                 """
+                
                 cur.execute(sql, novos_dados + (id_jogador,))
                 return cur.rowcount > 0
     except Exception as e:
@@ -196,7 +200,7 @@ def atualizar_contrato_db(id_contrato, novos_dados):
             with conn.cursor() as cur:
                 cur.execute("SET search_path TO aplicacao_crud;")
                 sql = """
-                UPDATE Contrato SET data_fim = %s, salario = %s, multa = %s
+                UPDATE Contrato SET data_fim = %s, salario_mensal = %s, multa_rescisoria = %s
                 WHERE id_contrato = %s;
                 """
                 cur.execute(sql, novos_dados + (id_contrato,))
@@ -204,4 +208,3 @@ def atualizar_contrato_db(id_contrato, novos_dados):
     except Exception as e:
         print(f"ERRO AO ATUALIZAR CONTRATO: {e}")
         return False
-
