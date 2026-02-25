@@ -1,6 +1,6 @@
 import psycopg
 
-dados_conexao = "host=database-1.cgueddgcnhqa.us-east-1.rds.amazonaws.com port=5432 dbname=postgres user=admin1 password=876admin5671"
+dados_conexao = ""
 
 try:
     with psycopg.connect(dados_conexao) as conn:
@@ -208,3 +208,4 @@ def atualizar_contrato_db(id_contrato, novos_dados):
     except Exception as e:
         print(f"ERRO AO ATUALIZAR CONTRATO: {e}")
         return False
+
